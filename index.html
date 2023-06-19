@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Greeting Birthday For You</title>
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+
+        <style>
+            @keyframes popIn {
+                0% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+                25% {
+                    transform: scale(1.02);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(0.9);
+                    opacity: 1;
+                }
+                75% {
+                    transform: scale(1.01);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .greeting-pop {
+                animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+            .typing-effect {
+                display: inline-block;
+                overflow: hidden;
+                animation: typing 4s steps(20) infinite;
+                white-space: nowrap;
+                border-right: 3px solid;
+                padding-right: 3px;
+            }
+
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body class="bg-light">
+        <div id="root" class="">
+            <div class="row">
+                <div class="col-12 text-center pt-3">
+                    <h3 class="fw-bold">
+                        <span class="typing-effect"></span>
+                    </h3>
+                </div>
+                <div class="col-12">
+                    <div
+                        class="d-flex align-items-end justify-content-center text-center"
+                        style="height: 40vh"
+                    >
+                        <span
+                            id="msg"
+                            class="greeting-pop rounded-pill px-4 py-2 mx-3 bg-dark shadow-sm text-white"
+                            style="text-transform: lowercase"
+                        ></span>
+                    </div>
+                </div>
+                <div class="col-12 p-3">
+                    <img src="./bull.gif" class="img-fluid" />
+                </div>
+                <audio id="background-audio" loop autoplay>
+                    <source src="./relaxing.mp3" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <script>
+            function delay(ms) {
+                return new Promise((resolve) => setTimeout(resolve, ms));
+            }
+
+            async function startTypingEffect() {
+                const text = "Happy Birthday My Princess";
+                const typingElement = document.querySelector(".typing-effect");
+
+                for (let i = 0; i <= text.length; i++) {
+                    typingElement.textContent = text.slice(0, i);
+                    await delay(150); // Adjust the typing speed here (in milliseconds)
+                }
+            }
+
+            // Start the typing effect when the page is loaded
+            window.addEventListener("DOMContentLoaded", startTypingEffect);
+
+            let greeting = [
+                {
+                    message: "Halo Cantik ku",
+                    duration: 5000, // Duration in milliseconds for this greeting
+                },
+                {
+                    message: "Selamat Ulang Tahun untuk kamu",
+                    duration: 4000,
+                },
+                {
+                    message:
+                        "I know, aku bukan satu satunya lelaki yang mengucap selamat kepada mu hari ini",
+                    duration: 6000,
+                },
+                {
+                    message: "aku adalah salah satunya",
+                    duration: 3500,
+                },
+                {
+                    message:
+                        "Tapi aku harap, aku satu satunya manusia yang mengucap selamat dengan cara yang berbeda",
+                    duration: 7500,
+                },
+                {
+                    message: "dengan cara yang aku bisa",
+                    duration: 4000,
+                },
+                {
+                    message:
+                        "Semoga diwajah cantik mu itu bisa terlukis senyum bahagia",
+                    duration: 6000,
+                },
+                {
+                    message:
+                        "Aku tau, birthday greetings seperti ini tidak berarti apa apa buat kamu",
+                    duration: 6000,
+                },
+                {
+                    message:
+                        "Tapi, dari greetings ini, Do'a terbaik ku menyertai mu",
+                    duration: 5000,
+                },
+                {
+                    message: "Sekali lagi, Happy birthday yaa cantik ku",
+                    duration: 6500,
+                },
+                {
+                    message: "Semoga apa yang belum tercapai segera kamu raih",
+                    duration: 6500,
+                },
+                {
+                    message:
+                        "Semoga apa yang kamu inginkan dapat segera terwujud",
+                    duration: 6500,
+                },
+                {
+                    message: "oiya",
+                    duration: 1500,
+                },
+                {
+                    message: "one more thing",
+                    duration: 2500,
+                },
+                {
+                    message: "Meskipun kamu bawel",
+                    duration: 3500,
+                },
+                {
+                    message: "Meskipun kamu nyebelin",
+                    duration: 3500,
+                },
+                {
+                    message: "Meskipun kamu suka nyari nyari masalah",
+                    duration: 3500,
+                },
+                {
+                    message: "Meskipun kamu suka lola",
+                    duration: 3500,
+                },
+                {
+                    message: "Kamu tetap cantik ku",
+                    duration: 4500,
+                },
+                {
+                    message: "dan kamu tau ?",
+                    duration: 2500,
+                },
+                {
+                    message:
+                        "bagaimana kamu bisa bahagia dan menikmati masa tua mu ?",
+                    duration: 6500,
+                },
+                {
+                    message: "menualah bersama ku",
+                    duration: 2500,
+                },
+                {
+                    message: "Mwaaaaaaahhhhhhhhh!!!!!",
+                    duration: 7000,
+                },
+            ];
+
+            let msgElement = document.getElementById("msg");
+            let currentIndex = 0;
+
+            function showNextGreeting() {
+                if (currentIndex >= greeting.length) {
+                    currentIndex = 0; // Reset to the beginning if all greetings have been shown
+                }
+
+                let currentGreeting = greeting[currentIndex];
+                msgElement.textContent = currentGreeting.message;
+                msgElement.classList.remove("greeting-pop"); // Remove the class before updating the content
+                msgElement.offsetHeight; // Trigger reflow to apply the class change
+                msgElement.classList.add("greeting-pop"); // Add the class to trigger the animation
+
+                currentIndex++;
+
+                setTimeout(showNextGreeting, currentGreeting.duration);
+            }
+
+            // Start showing greetings when the page is loaded
+            window.onload = function () {
+                showNextGreeting();
+            };
+        </script>
+    </body>
+</html>
